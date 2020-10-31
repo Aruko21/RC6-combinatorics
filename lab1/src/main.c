@@ -2,8 +2,6 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-const int M = 4;
-const int N = 9;
 
 void vect_init(int **vector, const int m, const int n) {
     for (int i = 0; i < m; ++i) {
@@ -47,17 +45,24 @@ void next_vec(int **vector, const int m, const int n) {
 
 
 int main(int argc, const char** argv) {
+    if (argc < 3) {
+        printf("Usage: %s <m> <n>\n", argv[0]);
+        return 1;
+    }
 
-    int *current_vec = (int *)malloc(sizeof(int) * N);
-    vect_init(&current_vec, M, N);
+    int m_val = atoi(argv[1]);
+    int n_val = atoi(argv[2]);
+
+    int *current_vec = (int *)malloc(sizeof(int) * n_val);
+    vect_init(&current_vec, m_val, n_val);
     int number = 1;
 
-    print_vec(&current_vec, M, number);
+    print_vec(&current_vec, m_val, number);
 
-    while (!is_final(&current_vec, M, N)) {
+    while (!is_final(&current_vec, m_val, n_val)) {
         ++number;
-        next_vec(&current_vec, M, N);
-        print_vec(&current_vec, M, number);
+        next_vec(&current_vec, m_val, n_val);
+        print_vec(&current_vec, m_val, number);
     }
 
     return 0;
