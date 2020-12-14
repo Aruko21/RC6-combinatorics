@@ -47,8 +47,8 @@ void print_erlich_part(std::vector<int> &vec) {
     std::cout << std::endl;
 }
 
-void gindenburg(int n) {
-    std::cout << "Partitions of number '" << n << "' by Gindenburg's algorithm:" << std::endl;
+void hindenburg(int n) {
+    std::cout << "Partitions of number '" << n << "' by hindenburg's algorithm:" << std::endl;
 
     for (int i = 1; i <= n; ++i) {
         std::cout << "- Number of terms: " << i << std::endl;
@@ -141,6 +141,6 @@ int main(int argc, const char **argv) {
 
     std::cout << "Partitions count for '" << n << "' = " << parts_count(n) << std::endl;
 
-    gindenburg(9);
+    hindenburg(9);
     erlich(9);
 }   
